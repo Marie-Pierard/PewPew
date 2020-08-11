@@ -67,7 +67,7 @@ function draw() {
         else if(projectile.y < 0) {
             projectile = null;
         }
-        if (targetReached === 2) {
+        if (targetReached === 10) {
             alert("You won!");
         }
     }
@@ -82,7 +82,7 @@ function gameOn() {
     document.getElementById("start").blur();
 }
 function stop() {
-    if (targetReached === 2) {
+    if (targetReached === 10) {
         clearInterval(gameInterval);//ne fonctionne pas, à revoir
     }
 }
