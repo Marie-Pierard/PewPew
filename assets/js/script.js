@@ -67,16 +67,29 @@ function draw() {
         else if(projectile.y < 0) {
             projectile = null;
         }
+        if (targetReached === 2) {
+            alert("You won!");
+        }
     }
 }
 
 
 function gameOn() {
     window.addEventListener("keydown", moveSomething, false);
-    setInterval(draw, 1000/30);
+    gameInterval = setInterval(draw, 1000/30);
+    
     document.getElementById("start").disabled = true;
     document.getElementById("start").blur();
 }
-
+function stop() {
+    if (targetReached === 2) {
+        clearInterval(gameInterval);//ne fonctionne pas, à revoir
+    }
+}
+function reset() {
+    document.location.reload(true);
+}
 document.getElementById("start").onclick = gameOn; //autre option: .addEventListener("click", gameOn, false);
+document.getElementById("reset").onclick = reset; //autre option: .addEventListener("click", gameOn, false);
 })();
+
